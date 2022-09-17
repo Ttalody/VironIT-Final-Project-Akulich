@@ -1,0 +1,7 @@
+line_length:
+- 377 # warning
+- 500 # error
+disabled_rules:
+- vertical_parameter_alignment
+- unused_optional_binding
+- trailing_whitespace
