@@ -9,5 +9,6 @@ target 'FinalProject' do
 
   pod 'KeychainSwift'
   pod 'SwiftLint'
+  pod 'SDWebImage', '5.12.6'
 
 end

@@ -11,12 +11,12 @@ class ProfileViewController: UIViewController {
     
     var userName: String = ""
 
-    @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var emailTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Theme.setupTheme()
         
         userImage.layer.cornerRadius = userImage.bounds.height/2
         userImage.layer.borderWidth = 0.5

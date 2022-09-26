@@ -1,20 +1,26 @@
 PODS:
   - KeychainSwift (20.0.0)
+  - SDWebImage (5.12.6):
+    - SDWebImage/Core (= 5.12.6)
+  - SDWebImage/Core (5.12.6)
   - SwiftLint (0.48.0)
 
 DEPENDENCIES:
   - KeychainSwift
+  - SDWebImage (= 5.12.6)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - KeychainSwift
+    - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
   KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
+  SDWebImage: a47aea9e3d8816015db4e523daff50cfd294499d
   SwiftLint: 284cea64b6187c5d6bd83e9a548a64104d546447
 
-PODFILE CHECKSUM: ae4cade6f410a4ee4af21bff4a02968a7032b82c
+PODFILE CHECKSUM: 40bb9eb2f49c64ebcc77577c6b4e035a78868755
 
 COCOAPODS: 1.11.3

@@ -22,8 +22,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="T4g-S1-Pgz">
-                                <rect key="frame" x="188.5" y="475" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="T4g-S1-Pgz">
+                                <rect key="frame" x="188.5" y="403" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -31,7 +31,7 @@
                         <constraints>
                             <constraint firstItem="Ooy-9N-CMs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9Es-3Y-yrj"/>
                             <constraint firstItem="T4g-S1-Pgz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dwQ-zJ-xNl"/>
-                            <constraint firstItem="T4g-S1-Pgz" firstAttribute="top" secondItem="Ooy-9N-CMs" secondAttribute="bottom" constant="7.5" id="ntE-MB-2Ot"/>
+                            <constraint firstItem="T4g-S1-Pgz" firstAttribute="top" secondItem="Ooy-9N-CMs" secondAttribute="bottom" constant="-64.5" id="ntE-MB-2Ot"/>
                             <constraint firstItem="Ooy-9N-CMs" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="s3n-FB-Gme"/>
                         </constraints>
                     </view>

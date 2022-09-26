@@ -13,7 +13,7 @@ enum Theme {
 }
 
 extension Theme {
-    static func setupTheme(userTheme: Theme) {
-        
+    static func setupTheme() {
+        UIButton.appearance().tintColor = .systemPink
     }
 }
