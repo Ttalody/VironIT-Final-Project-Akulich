@@ -14,7 +14,7 @@ struct GameResponseModel: Codable {
     let backgroundImage: String?
     let rating: Float?
     let ratingsCount: Int?
-    let metacriticRating: Int?
+    let metacriticRating: Float?
     let platforms: [PlatformGameResponse]
     
     private enum CodingKeys: String, CodingKey {
@@ -45,7 +45,7 @@ struct GameResponseModel: Codable {
          backgroundImage: String,
          rating: Float,
          ratingsCount: Int,
-         metacriticRating: Int,
+         metacriticRating: Float,
          platforms: [PlatformGameResponse]) {
         self.id = id
         self.name = name

@@ -11,7 +11,7 @@ class SearchTableViewCell: UITableViewCell {
     
     static let identifier = "SearchTableViewCell"
     
-    private let gameImageView: UIImageView = {
+    let gameImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.frame = CGRect(x: 10, y: 0, width: 200, height: 120)
         imageView.clipsToBounds = true
@@ -19,7 +19,7 @@ class SearchTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private let gameLabelName: UILabel = {
+    let gameLabelName: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 200, y: 0, width: 100, height: 120)
         label.textColor = .label
@@ -32,7 +32,7 @@ class SearchTableViewCell: UITableViewCell {
         self.layer.cornerRadius = 10
         self.backgroundColor = .systemBlue
         addSubview(gameImageView)
-//        addGradient()
+        addGradient()
         addSubview(gameLabelName)
     }
     
@@ -46,8 +46,8 @@ class SearchTableViewCell: UITableViewCell {
             UIColor.clear.cgColor,
             UIColor.systemBackground.cgColor
         ]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.startPoint = CGPoint(x: bounds.minX, y: bounds.midY)
+        gradientLayer.endPoint = CGPoint(x: bounds.maxX, y: bounds.midY)
         gradientLayer.frame = bounds
         layer.addSublayer(gradientLayer)
     }

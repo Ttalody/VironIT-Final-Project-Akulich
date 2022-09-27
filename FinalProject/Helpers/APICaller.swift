@@ -24,7 +24,7 @@ class APICaller {
             
             do {
                 let results = try JSONDecoder().decode(ResponseModel.self, from: data)
-                print(results.results?[0].name)
+                print(results.results?[0].name!)
             } catch {
                 print(String(describing: error))
             }

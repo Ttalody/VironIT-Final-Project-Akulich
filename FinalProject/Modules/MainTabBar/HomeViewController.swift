@@ -48,6 +48,8 @@ class HomeViewController: UIViewController {
 //        NetworkManager.makeRequest(page: 0) { _ in
 //            
 //        }
+        
+        
     }
 
     override func viewDidLayoutSubviews() {
@@ -110,6 +112,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 40
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        0
+    }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
@@ -128,11 +134,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeViewController: CollectionViewTableViewCellDelegate {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: GameResponseModel) {
-//        DispatchQueue.main.async { [weak self] in
-//            let vc = GameDetailViewController()
-//            vc.configure(with: viewModel)
-//            self?.performSegue(withIdentifier: "detailSegue", sender: self)
-//        }
+        DispatchQueue.main.async { [weak self] in
+            let viewController = GameDetailViewController()
+            viewController.gameNameLabel?.text = viewModel.name
+//            viewController.configure(with: viewModel)
+//            self?.navigationController?.pushViewController(viewController, animated: true)
+            self?.performSegue(withIdentifier: "detailSegue", sender: self)
+        }
     }
     
 }

@@ -50,6 +50,21 @@ class CollectionViewTableViewCell: UITableViewCell {
 //        return [self.games].count > 0
 //    }
     
+    private func addToCartAt(indexPath: IndexPath) {
+        print("adding the \(games[indexPath.row].name ?? "")")
+        
+        CoreDataManager.shared.addItem(with: games[indexPath.row]) { result in
+            switch result {
+            case .success():
+                NotificationCenter.default.post(name: NSNotification.Name("Add to cart"), object: nil)
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
+        
+    }
+    
     public func configure(with games: [GameResponseModel]) {
         self.games = games
         DispatchQueue.main.async { [weak self] in
@@ -78,6 +93,8 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         collectionView.deselectItem(at: indexPath, animated: true)
         print(games[indexPath.row].name ?? "no name")
         
+        delegate?.collectionViewTableViewCellDidTapCell(self, viewModel: games[indexPath.row])
+        
 //        DispatchQueue.main.async {
 //            let viewController = GameDetailViewController()
 //            viewController.configure(with: self.games[indexPath.row])
@@ -89,11 +106,11 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let config = UIContextMenuConfiguration(identifier: nil,
-                                                previewProvider: nil) { _ in
-            let downloadAction = UIAction(title: "Download", image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
-                print("dowloaded")
+                                                previewProvider: nil) { [weak self] _ in
+            let addToCartAction = UIAction(title: "Add to cart", image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                self?.addToCartAt(indexPath: indexPath)
             }
-            return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [downloadAction])
+            return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [addToCartAction])
         }
         
         return config

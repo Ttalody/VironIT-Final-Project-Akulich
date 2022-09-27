@@ -17,10 +17,11 @@ class GameDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     public func configure(with model: GameResponseModel) {
-        gameImage.sd_setImage(with: URL(string: model.backgroundImage!), completed: nil)
+        // gameImage.sd_setImage(with: URL(string: model.backgroundImage ?? ""), completed: nil)
         gameNameLabel.text = model.name
     }
     

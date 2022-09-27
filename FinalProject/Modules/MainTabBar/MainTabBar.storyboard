@@ -221,7 +221,7 @@
                             <constraint firstItem="6OA-rq-bwG" firstAttribute="top" secondItem="POf-LI-eBa" secondAttribute="top" constant="12" id="wzM-DN-tlW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2Iv-np-KLa"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="2Iv-np-KLa"/>
                     <connections>
                         <outlet property="searchTable" destination="6OA-rq-bwG" id="92K-cD-jPO"/>
                     </connections>
@@ -233,7 +233,7 @@
         <!--Game Detail View Controller-->
         <scene sceneID="pRy-3p-AEn">
             <objects>
-                <viewController id="o7O-9O-Ddv" customClass="GameDetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameDetailViewController" id="o7O-9O-Ddv" customClass="GameDetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Jm-Nc-BRH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -370,11 +370,11 @@
             </objects>
             <point key="canvasLocation" x="2362" y="-1010"/>
         </scene>
-        <!--Profile-->
+        <!--Cart-->
         <scene sceneID="Rs8-Qu-5nt">
             <objects>
                 <navigationController storyboardIdentifier="profileNavController" automaticallyAdjustsScrollViewInsets="NO" id="qQP-vU-IOA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="cart" catalog="system" selectedImage="cart.fill" id="zou-f2-U74"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" selectedImage="cart.fill" id="zou-f2-U74"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IvV-69-zj1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -389,21 +389,45 @@
             </objects>
             <point key="canvasLocation" x="99" y="602"/>
         </scene>
-        <!--View Controller-->
+        <!--Cart View Controller-->
         <scene sceneID="gHm-gL-fdJ">
             <objects>
-                <viewController id="ida-lr-rTG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartViewController" id="ida-lr-rTG" customClass="CartViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BAg-fw-jM5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-sq-rv8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartTableViewCell" id="VSR-0j-SCz" customClass="CartTableViewCell" customModule="FinalProject" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VSR-0j-SCz" id="NcP-K8-J6Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Oo3-U3-MiK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Quj-sq-rv8" firstAttribute="trailing" secondItem="Oo3-U3-MiK" secondAttribute="trailing" id="Oqw-gS-qG9"/>
+                            <constraint firstItem="Quj-sq-rv8" firstAttribute="bottom" secondItem="Oo3-U3-MiK" secondAttribute="bottom" id="UAz-hs-hHF"/>
+                            <constraint firstItem="Quj-sq-rv8" firstAttribute="leading" secondItem="Oo3-U3-MiK" secondAttribute="leading" id="hPw-mL-Wnz"/>
+                            <constraint firstItem="Quj-sq-rv8" firstAttribute="top" secondItem="Oo3-U3-MiK" secondAttribute="top" id="w5v-CT-noB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k5a-bP-jE3"/>
+                    <connections>
+                        <outlet property="cartTableView" destination="Quj-sq-rv8" id="7yG-mq-Oun"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvJ-4I-EiO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="601"/>
+            <point key="canvasLocation" x="1453.6231884057972" y="600.66964285714278"/>
         </scene>
         <!--Search-->
         <scene sceneID="5Ro-oz-DZz">
@@ -416,6 +440,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="32T-cW-jFP">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="JYO-y3-PKA" kind="relationship" relationship="rootViewController" id="hrt-WC-iFD"/>
                     </connections>

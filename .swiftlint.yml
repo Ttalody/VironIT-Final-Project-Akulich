@@ -5,3 +5,5 @@ disabled_rules:
 - vertical_parameter_alignment
 - unused_optional_binding
 - trailing_whitespace
+- force_cast
+

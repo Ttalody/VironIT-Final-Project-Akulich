@@ -30,9 +30,11 @@ class SearchViewController: UIViewController {
         searchController.searchBar.delegate = self
         
         searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
+        searchController.definesPresentationContext = true
         
-        view.addSubview(searchTable)
+//        view.addSubview(searchTable)
         
         self.searchTable.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
         
