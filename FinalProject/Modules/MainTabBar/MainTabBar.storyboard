@@ -176,6 +176,16 @@
             </objects>
             <point key="canvasLocation" x="3374" y="-1010"/>
         </scene>
+        <!--GameDetail-->
+        <scene sceneID="LLH-4Y-MWQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GameDetail" id="DMa-tj-kJW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="yR5-ol-wOl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WiT-N5-ZUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2363" y="-577"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="9IS-pL-8eL">
             <objects>
@@ -229,45 +239,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="700-Fo-kcX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2363.768115942029" y="-125.22321428571428"/>
-        </scene>
-        <!--Game Detail View Controller-->
-        <scene sceneID="pRy-3p-AEn">
-            <objects>
-                <viewController storyboardIdentifier="GameDetailViewController" id="o7O-9O-Ddv" customClass="GameDetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9Jm-Nc-BRH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O07-R1-E1s">
-                                <rect key="frame" x="20" y="88" width="374" height="273"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmF-0P-9wE">
-                                <rect key="frame" x="171.5" y="432.5" width="71" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="ufS-gk-4de"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="O07-R1-E1s" firstAttribute="centerX" secondItem="ufS-gk-4de" secondAttribute="centerX" id="0G8-Kq-BRk"/>
-                            <constraint firstItem="lmF-0P-9wE" firstAttribute="centerX" secondItem="ufS-gk-4de" secondAttribute="centerX" id="1jZ-xa-p3N"/>
-                            <constraint firstItem="O07-R1-E1s" firstAttribute="leading" secondItem="9Jm-Nc-BRH" secondAttribute="leadingMargin" id="ExS-Sb-BVS"/>
-                            <constraint firstItem="ufS-gk-4de" firstAttribute="bottom" secondItem="O07-R1-E1s" secondAttribute="bottom" constant="452" id="Gda-dc-H1q"/>
-                            <constraint firstItem="lmF-0P-9wE" firstAttribute="centerY" secondItem="ufS-gk-4de" secondAttribute="centerY" id="Ra7-FQ-1QR"/>
-                            <constraint firstItem="O07-R1-E1s" firstAttribute="top" secondItem="ufS-gk-4de" secondAttribute="top" id="bCi-Mk-oaU"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="S99-oF-4n2"/>
-                    <connections>
-                        <outlet property="gameImage" destination="O07-R1-E1s" id="Jpb-xc-lTG"/>
-                        <outlet property="gameNameLabel" destination="lmF-0P-9wE" id="Sjs-p2-Uv7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NsH-lr-lP6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3271.0144927536235" y="-269.19642857142856"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="yus-Sf-QbA">
@@ -363,7 +334,7 @@
                         <outlet property="profileNavBarButton" destination="4VA-KJ-fPS" id="7sA-x3-KsC"/>
                         <outlet property="settingsNavBarButton" destination="kgB-9w-lJn" id="skj-xc-1Lc"/>
                         <segue destination="qSz-29-t1A" kind="show" identifier="toProfileSugue" id="YZO-mf-iz8"/>
-                        <segue destination="o7O-9O-Ddv" kind="show" identifier="detailSegue" id="4PZ-i4-ZaG"/>
+                        <segue destination="DMa-tj-kJW" kind="push" identifier="toDetail" id="eI0-jj-gYE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seQ-So-1e8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

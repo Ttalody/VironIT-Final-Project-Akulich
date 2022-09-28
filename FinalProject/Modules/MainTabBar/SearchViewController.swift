@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
         
 //        view.addSubview(searchTable)
         
-        self.searchTable.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
+        self.searchTable.register(GamePreviewTableViewCell.self, forCellReuseIdentifier: GamePreviewTableViewCell.identifier)
         
         searchTable.delegate = self
         searchTable.dataSource = self
@@ -68,11 +68,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GamePreviewTableViewCell.identifier, for: indexPath) as? GamePreviewTableViewCell else {
             return UITableViewCell()
         }
+        let game = games[indexPath.row]
         cell.backgroundColor = .systemBackground
-        cell.configure(model: games[indexPath.row])
+        
+        cell.configure(model: GameViewModel(name: game.name ?? "", imageUrl: game.backgroundImage))
         return cell
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CollectionViewTableViewCellDelegate: AnyObject {
-    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: GameResponseModel)
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: GameDetailViewModel)
 }
 
 class CollectionViewTableViewCell: UITableViewCell {
@@ -92,8 +92,14 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print(games[indexPath.row].name ?? "no name")
-        
-        delegate?.collectionViewTableViewCellDidTapCell(self, viewModel: games[indexPath.row])
+        let game = games[indexPath.row]
+        delegate?.collectionViewTableViewCellDidTapCell(self, viewModel: GameDetailViewModel(id: game.id,
+                                                                                             name: game.name,
+                                                                                             releaseDate: game.releaseDate,
+                                                                                             imageUrl: game.backgroundImage,
+                                                                                             rating: game.rating,
+                                                                                             ratingsCount: game.ratingsCount,
+                                                                                             metacriticRating: game.metacriticRating))
         
 //        DispatchQueue.main.async {
 //            let viewController = GameDetailViewController()

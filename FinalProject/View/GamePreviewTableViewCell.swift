@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell {
+class GamePreviewTableViewCell: UITableViewCell {
     
-    static let identifier = "SearchTableViewCell"
+    static let identifier = "GamePreviewTableViewCell"
     
     let gameImageView: UIImageView = {
        let imageView = UIImageView()
@@ -21,7 +21,8 @@ class SearchTableViewCell: UITableViewCell {
     
     let gameLabelName: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 200, y: 0, width: 100, height: 120)
+        label.frame = CGRect(x: 215, y: 0, width: 100, height: 120)
+        label.numberOfLines = 0
         label.textColor = .label
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         return label
@@ -52,8 +53,8 @@ class SearchTableViewCell: UITableViewCell {
         layer.addSublayer(gradientLayer)
     }
     
-    func configure(model: GameResponseModel) {
-        if let url = URL(string: model.backgroundImage ?? "") {
+    func configure(model: GameViewModel) {
+        if let url = URL(string: model.imageUrl ?? "") {
             gameImageView.sd_setImage(with: url, completed: nil)
         }
         gameLabelName.text = model.name

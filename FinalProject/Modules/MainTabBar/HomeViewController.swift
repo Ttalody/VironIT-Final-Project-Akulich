@@ -49,13 +49,18 @@ class HomeViewController: UIViewController {
 //            
 //        }
         
-        
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeTable.frame = view.bounds
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let controller = segue.destination as? GameDetailViewController {
+//            controller.configure(with: GameDetailViewModel())
+//        }
+//    }
 
     private func getGames() {
         APICaller.shared.getGamesData { _ in
@@ -133,13 +138,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeViewController: CollectionViewTableViewCellDelegate {
-    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: GameResponseModel) {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: GameDetailViewModel) {
         DispatchQueue.main.async { [weak self] in
             let viewController = GameDetailViewController()
-            viewController.gameNameLabel?.text = viewModel.name
-//            viewController.configure(with: viewModel)
-//            self?.navigationController?.pushViewController(viewController, animated: true)
-            self?.performSegue(withIdentifier: "detailSegue", sender: self)
+//            viewController.gameNameLabel?.text = viewModel.name
+            viewController.configure(with: viewModel)
+            self?.navigationController?.pushViewController(viewController, animated: true)
+//            self?.performSegue(withIdentifier: "toDetail", sender: self)
         }
     }
     

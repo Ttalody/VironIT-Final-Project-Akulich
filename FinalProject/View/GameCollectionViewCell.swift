@@ -14,7 +14,7 @@ class GameCollectionViewCell: UICollectionViewCell {
     
     private let gameImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 10
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView

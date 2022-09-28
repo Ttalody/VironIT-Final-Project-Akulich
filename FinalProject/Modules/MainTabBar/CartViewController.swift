@@ -20,7 +20,7 @@ class CartViewController: UIViewController {
 
         cartTableView.delegate = self
         cartTableView.dataSource = self
-        self.cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: CartTableViewCell.identifier)
+        self.cartTableView.register(GamePreviewTableViewCell.self, forCellReuseIdentifier: GamePreviewTableViewCell.identifier)
         
 //        NetworkManager.makeRequest(page: 1) { [weak self] results in
 //            switch results {
@@ -71,13 +71,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath) as? CartTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GamePreviewTableViewCell.identifier, for: indexPath) as? GamePreviewTableViewCell else {
             return UITableViewCell()
         }
+        let item = cartItems[indexPath.row]
         cell.backgroundColor = .systemBackground
-        for item in cartItems {
-            cell.configure(model: item)
-        }
+        cell.configure(model: GameViewModel(name: item.name, imageUrl: item.backgroundImage))
         return cell
     }
     
