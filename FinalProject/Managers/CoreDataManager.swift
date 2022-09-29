@@ -67,4 +67,18 @@ class CoreDataManager {
             completion(.failure(error))
         }
     }
+    
+    func deleteAll() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        context.deletedObjects
+        
+        do {
+            try context.save()
+        } catch {
+            
+        }
+    }
 }

@@ -13,8 +13,10 @@ class SearchViewController: UIViewController {
     
     private var games: [GameResponseModel] = [GameResponseModel]()
     
+    @IBOutlet weak var resultCountLabel: UILabel!
     @IBOutlet weak var searchTable: UITableView!
-
+    @IBOutlet var tableFooterView: UIView!
+    
 //    private let searchTable: UITableView = {
 //        let table = UITableView(frame: .zero, style: .grouped)
 //        table.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
@@ -44,7 +46,7 @@ class SearchViewController: UIViewController {
 //        let headerView = SearchHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 100))
 //
 //        searchTable.tableHeaderView = headerView
-        
+        tableFooterView.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,6 +58,10 @@ class SearchViewController: UIViewController {
         self.games = games
         DispatchQueue.main.async { [weak self] in
             self?.searchTable.reloadData()
+            if games.count > 0 {
+                self?.tableFooterView.isHidden = false
+                self?.resultCountLabel.text = "\(games.count) search results"
+            }
         }
     }
 }
@@ -95,6 +101,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let game = games[indexPath.row]
+        if let viewController = storyboard?.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
+            viewController.configure(with: GameDetailViewModel(id: game.id,
+                                                               name: game.name,
+                                                               releaseDate: game.releaseDate,
+                                                               imageUrl: game.backgroundImage,
+                                                               rating: game.rating,
+                                                               ratingsCount: game.ratingsCount,
+                                                               metacriticRating: game.metacriticRating,
+                                                               screenshots: game.screenshots,
+                                                               platforms: game.platforms))
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
         self.searchTable.deselectRow(at: indexPath, animated: true)
     }
     

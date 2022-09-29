@@ -10,6 +10,8 @@ import UIKit
 class CartViewController: UIViewController {
     
     @IBOutlet weak var cartTableView: UITableView!
+    @IBOutlet var clearButton: UIButton!
+    @IBOutlet var tableFooterView: UIView!
     
     private var cartItems = [GameItem]()
     
@@ -17,6 +19,8 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Cart"
+        
+        clearButton.layer.cornerRadius = 15
 
         cartTableView.delegate = self
         cartTableView.dataSource = self
@@ -63,6 +67,9 @@ class CartViewController: UIViewController {
     }
     */
 
+    @IBAction func clearButtonPressed(_ sender: Any) {
+        CoreDataManager.shared.deleteAll()
+    }
 }
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {

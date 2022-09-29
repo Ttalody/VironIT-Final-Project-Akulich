@@ -15,6 +15,7 @@ struct GameResponseModel: Codable {
     let rating: Float?
     let ratingsCount: Int?
     let metacriticRating: Float?
+    let screenshots: [GameScreenshotsResponseModel]
     let platforms: [PlatformGameResponse]
     
     private enum CodingKeys: String, CodingKey {
@@ -25,6 +26,7 @@ struct GameResponseModel: Codable {
         case rating
         case ratingsCount = "ratings_count"
         case metacriticRating = "metacritic"
+        case screenshots = "short_screenshots"
         case platforms
     }
     
@@ -36,6 +38,7 @@ struct GameResponseModel: Codable {
         self.rating = 0
         self.ratingsCount = 0
         self.metacriticRating = 0
+        self.screenshots = [GameScreenshotsResponseModel]()
         self.platforms = [PlatformGameResponse()]
     }
     
@@ -46,6 +49,7 @@ struct GameResponseModel: Codable {
          rating: Float,
          ratingsCount: Int,
          metacriticRating: Float,
+         screenshots: [GameScreenshotsResponseModel],
          platforms: [PlatformGameResponse]) {
         self.id = id
         self.name = name
@@ -54,6 +58,7 @@ struct GameResponseModel: Codable {
         self.rating = rating
         self.ratingsCount = ratingsCount
         self.metacriticRating = metacriticRating
+        self.screenshots = screenshots
         self.platforms = platforms
     }
 }

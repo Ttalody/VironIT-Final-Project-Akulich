@@ -62,14 +62,8 @@ class HomeViewController: UIViewController {
 //        }
 //    }
 
-    private func getGames() {
-        APICaller.shared.getGamesData { _ in
-            
-        }
-    }
-    
     @IBAction func profileButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toProfileSugue", sender: self)
+        performSegue(withIdentifier: StoryboardSegue.profile.rawValue, sender: self)
     }
     
     @IBAction func unwindToHome(for: UIStoryboardSegue, sender: Any?) {}
@@ -116,10 +110,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        0
-    }
+
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
@@ -138,14 +129,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeViewController: CollectionViewTableViewCellDelegate {
+    
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: GameDetailViewModel) {
-        DispatchQueue.main.async { [weak self] in
-            let viewController = GameDetailViewController()
-//            viewController.gameNameLabel?.text = viewModel.name
+        
+        if let viewController = storyboard?.instantiateViewController(identifier: "GameDetailViewController") as? GameDetailViewController {
             viewController.configure(with: viewModel)
-            self?.navigationController?.pushViewController(viewController, animated: true)
-//            self?.performSegue(withIdentifier: "toDetail", sender: self)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
+        
     }
     
 }

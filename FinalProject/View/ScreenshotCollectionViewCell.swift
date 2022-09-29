@@ -1,20 +1,17 @@
 //
-//  GameCollectionViewCell.swift
+//  ScreenshotCollectionViewCell.swift
 //  FinalProject
 //
-//  Created by user on 19.09.2022.
+//  Created by user on 29.09.2022.
 //
 
 import UIKit
-import SDWebImage
 
-class GameCollectionViewCell: UICollectionViewCell {
-    
-    static let identifier = "GameCollectionViewCell"
+class ScreenshotCollectionViewCell: UICollectionViewCell {
+    static let identifier = "ScreenshotCollectionViewCell"
     
     private let gameImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.layer.cornerRadius = 10
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -34,8 +31,8 @@ class GameCollectionViewCell: UICollectionViewCell {
         gameImageView.frame = contentView.bounds
     }
     
-    func configure(with model: GameResponseModel) {
-        guard let url = URL(string: model.backgroundImage!) else { return }
+    func configureScreenshotCell(with url: String) {
+        guard let url = URL(string: url) else { return }
         gameImageView.sd_setImage(with: url, completed: nil)
     }
 }

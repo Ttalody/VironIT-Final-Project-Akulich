@@ -9,8 +9,6 @@ import Foundation
 
 class NetworkManager {
     
-    var cache = NSCache<NSString, NSString>()
-    
     private static let defaultSession = URLSession(configuration: .default)
     private static var dataTask: URLSessionDataTask?
     

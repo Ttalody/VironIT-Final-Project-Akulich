@@ -65,7 +65,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         
     }
     
-    public func configure(with games: [GameResponseModel]) {
+    func configure(with games: [GameResponseModel]) {
         self.games = games
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
@@ -99,7 +99,9 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                                                                                              imageUrl: game.backgroundImage,
                                                                                              rating: game.rating,
                                                                                              ratingsCount: game.ratingsCount,
-                                                                                             metacriticRating: game.metacriticRating))
+                                                                                             metacriticRating: game.metacriticRating,
+                                                                                             screenshots: game.screenshots,
+                                                                                             platforms: game.platforms))
         
 //        DispatchQueue.main.async {
 //            let viewController = GameDetailViewController()

@@ -15,4 +15,6 @@ struct GameDetailViewModel {
     let rating: Float?
     let ratingsCount: Int?
     let metacriticRating: Float?
+    let screenshots: [GameScreenshotsResponseModel]
+    let platforms: [PlatformGameResponse]
 }
